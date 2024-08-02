@@ -1,0 +1,68 @@
+@CLIENT_ID=U81EEo6U8s3Ia4UVpE1OTPjD
+
+
+@BASE_URL=https://uat3-open.yoov.com.cn
+@USER_CENTER_URL=https://uat3-usercenter.yoov.com.cn
+
+@TOKEN_API=/auth/api/v1/third/access_token
+@USER_INFO_API=/auth/v2/user_info
+@REFRESH_API=/auth/api/v1/third/refresh_access_token
+@APP_TOKEN_API=/auth/v2/app_access_token/internal
+@TENANT_TOKEN_API=/auth/v2/tenant_access_token/internal
+@USER_TOKEN_API=/auth/v2/access_token
+
+@TENANT_INFO_API=/open/api/v1/teams
+
+@OPENID_TOKEN_URL=https://sit-passport.yoov.com.cn/auth/realms/yoov/protocol/openid-connect/token
+@OPENID_TOKEN_API=/auth/realms/yoov/protocol/openid-connect/token
+
+@ACCESS_TOKEN=u_r6dFwdbZwyU6LnK4ftfxyaV8JgGB7W2N3ODLRvhRyqHw81id5afgsIXuKdAmCugSBhAEkWh6WPuwe6Re
+@TENANT_ACCESS_TOKEN=t_fSCnsPhugt1R2b4ZVXbInw1KYdXBUy6Z
+@APP_ACCESS_TOKEN=a_lqtSeIUeH5Hp8RtTQ9LYES61FLx2TnoZ
+
+@BASE_URL=https://uat3-open.yoov.com.cn
+
+@employeeId=ou_2239a68a3f324c5c850e4c6220ac103f
+
+### get member info
+GET https://uat3-open.yoov.com.cn/open/api/v1/employees/{{employeeId}}`,
+Content-Type: application/json
+Authorization: Bearer {{TENANT_ACCESS_TOKEN}}
+
+
+### Get openid token
+POST {{OPENID_TOKEN_API}}{{OPENID_TOKEN_API}}
+
+{
+  "code": 
+}
+
+
+### Get app info
+GET {{BASE_URL}}/open/api/v1/applications/{CLIENT_ID}
+Content-Type: application/json
+Authorization: Bearer {{APP_ACCESS_TOKEN}}
+
+### Get team info
+GET {{BASE_URL}}/open/api/v1/teams
+Content-Type: application/json
+Authorization: Bearer {{TENANT_ACCESS_TOKEN}}
+
+
+### Get User Info
+GET {{BASE_URL}}{{USER_INFO_API}}
+Content-Type: application/json
+Authorization: Bearer {{ACCESS_TOKEN}}
+
+### Get Tenant Info
+GET {{BASE_URL}}{{TENANT_INFO_API}}
+Content-Type: application/json
+Authorization: Bearer {{TENANT_ACCESS_TOKEN}}
+
+
+###
+GET http://localhost:3000/auth/test
+
+###
+GET http://localhost:3000/hello
+
